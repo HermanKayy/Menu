@@ -12,6 +12,10 @@
 		5DD8FC39209387C700F085CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC38209387C700F085CD /* TabBarViewController.swift */; };
 		5DD8FC3B2093880100F085CD /* MenuFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC3A2093880100F085CD /* MenuFinderViewController.swift */; };
 		5DD8FC3D2093899E00F085CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC3C2093899E00F085CD /* CameraViewController.swift */; };
+		5DD8FC422094180700F085CD /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC412094180700F085CD /* InitialScreenViewController.swift */; };
+		5DD8FC44209503D800F085CD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC43209503D800F085CD /* Restaurant.swift */; };
+		5DD8FC462095051700F085CD /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC452095051700F085CD /* RestaurantController.swift */; };
+		5DD8FC4820953D4200F085CD /* MenuDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC4720953D4200F085CD /* MenuDisplayViewController.swift */; };
 		5DF8BA4D208E325800019E5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8BA4C208E325800019E5E /* AppDelegate.swift */; };
 		5DF8BA52208E325800019E5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8BA50208E325800019E5E /* Main.storyboard */; };
 		5DF8BA54208E325800019E5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8BA53208E325800019E5E /* Assets.xcassets */; };
@@ -24,6 +28,10 @@
 		5DD8FC38209387C700F085CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5DD8FC3A2093880100F085CD /* MenuFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFinderViewController.swift; sourceTree = "<group>"; };
 		5DD8FC3C2093899E00F085CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		5DD8FC412094180700F085CD /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
+		5DD8FC43209503D800F085CD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		5DD8FC452095051700F085CD /* RestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
+		5DD8FC4720953D4200F085CD /* MenuDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDisplayViewController.swift; sourceTree = "<group>"; };
 		5DF8BA49208E325800019E5E /* Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Menu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8BA4C208E325800019E5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DF8BA51208E325800019E5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,8 +66,10 @@
 		5DD8FC3E209406C100F085CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DD8FC412094180700F085CD /* InitialScreenViewController.swift */,
 				5DD8FC38209387C700F085CD /* TabBarViewController.swift */,
 				5DD8FC3A2093880100F085CD /* MenuFinderViewController.swift */,
+				5DD8FC4720953D4200F085CD /* MenuDisplayViewController.swift */,
 				5DD8FC3C2093899E00F085CD /* CameraViewController.swift */,
 			);
 			path = ViewControllers;
@@ -88,6 +98,8 @@
 			children = (
 				5D4CA86F20911E0500EC53CF /* Menu.entitlements */,
 				5DF8BA4C208E325800019E5E /* AppDelegate.swift */,
+				5DD8FC43209503D800F085CD /* Restaurant.swift */,
+				5DD8FC452095051700F085CD /* RestaurantController.swift */,
 				5DD8FC3E209406C100F085CD /* ViewControllers */,
 				5DF8BA7F208E887900019E5E /* Resources */,
 			);
@@ -235,8 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD8FC462095051700F085CD /* RestaurantController.swift in Sources */,
 				5DD8FC3B2093880100F085CD /* MenuFinderViewController.swift in Sources */,
 				5DD8FC3D2093899E00F085CD /* CameraViewController.swift in Sources */,
+				5DD8FC44209503D800F085CD /* Restaurant.swift in Sources */,
+				5DD8FC4820953D4200F085CD /* MenuDisplayViewController.swift in Sources */,
+				5DD8FC422094180700F085CD /* InitialScreenViewController.swift in Sources */,
 				5DD8FC39209387C700F085CD /* TabBarViewController.swift in Sources */,
 				5DF8BA4D208E325800019E5E /* AppDelegate.swift in Sources */,
 			);

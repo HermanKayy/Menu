@@ -16,7 +16,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blue
-//        setupScannerBox()
+//      setupScannerBox()
         setupTracker()
         
         let session = AVCaptureSession()    // Creating session to convert input into output
