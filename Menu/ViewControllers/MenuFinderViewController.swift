@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MenuFinderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MenuFinderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     // MARK: --- Life Cycles --- 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
+        menuSearchBar.delegate = self
         menuTableView.delegate = self
         menuTableView.dataSource = self
         
@@ -54,16 +55,38 @@ class MenuFinderViewController: UIViewController, UITableViewDelegate, UITableVi
         menuTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
+        
+        RestaurantController.shared.fetchRestuarantNamesWith(searchTerm: searchTerm) { (restuarants) in
+            if restuarants != nil {
+                DispatchQueue.main.async {
+                    searchBar.text = ""
+                    searchBar.resignFirstResponder()
+                    self.menuTableView.reloadData()
+                }
+            }
+        }
+    }
+    
     // MARK: --- Table View Datasource Methods ---
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return RestaurantController.shared.restaurants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
+        let restuarant = RestaurantController.shared.restaurants[indexPath.row]
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = restuarant.name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let restaurant = RestaurantController.shared.restaurants[indexPath.row]
+        let destinationVC = MenuDisplayViewController()
+        destinationVC.restuarant = restaurant
+        present(destinationVC, animated: true, completion: nil)
     }
 }
 
