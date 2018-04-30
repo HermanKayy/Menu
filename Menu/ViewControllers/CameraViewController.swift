@@ -60,7 +60,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }()   
     
     let tracker: UIImageView = {
-        let track = UIImageView(image: #imageLiteral(resourceName: "Tracker"))
+        let track = UIImageView(image: #imageLiteral(resourceName: "tracker"))
         track.translatesAutoresizingMaskIntoConstraints = false
         return track
     }()
