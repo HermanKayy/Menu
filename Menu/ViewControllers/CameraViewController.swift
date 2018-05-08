@@ -12,13 +12,45 @@ import AVFoundation
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var video = AVCaptureVideoPreviewLayer()  // This shows where the camera is actually pointing at
+    var objectStringValue = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blue
-//      setupScannerBox()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(localAlertTapped))
+        localAlert.addGestureRecognizer(tapGesture)
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(localAlertSwiped))
+        swipeGesture.direction = .up
+        localAlert.addGestureRecognizer(swipeGesture)
         setupTracker()
+        setupLocalAlert()
+        setupCameraSession()
+        setupQRLogo()
+        setupQRLabel()
+        setupQRURLText()
         
+        view.bringSubview(toFront: tracker)
+        view.bringSubview(toFront: localAlert)
+    }
+    
+    @objc func localAlertTapped() {
+        print(objectStringValue)
+        switch objectStringValue {
+        case "https://f988v.app.goo.gl/sReo":
+            present(ChickenSoupViewController(), animated: true, completion: nil)
+        default:
+            UIApplication.shared.open(URL(string: objectStringValue)!, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @objc func localAlertSwiped() {
+        let viewHeight = view.frame.height - view.safeAreaLayoutGuide.layoutFrame.height
+        UIView.animate(withDuration: 0.5) {
+            self.localAlert.transform = CGAffineTransform(translationX: 0, y: -viewHeight)
+        }
+    }
+    
+    func setupCameraSession() {
         let session = AVCaptureSession()    // Creating session to convert input into output
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) // Register our camera as the capture device
         
@@ -41,45 +73,87 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         video.frame = view.layer.bounds // fill the whole screen with the video
         video.videoGravity = AVLayerVideoGravity.resizeAspectFill
         view.layer.addSublayer(video)   // add the video, why subLayer?
-        view.bringSubview(toFront: tracker)
-        view.bringSubview(toFront: scannerBox)
-
         
         session.startRunning()
-        
     }
     
-    let scannerBox: UIView = {
-        let sb = UIView()
-        sb.translatesAutoresizingMaskIntoConstraints = false
-        sb.backgroundColor = UIColor.clear
-        sb.layer.borderWidth = 2
-        sb.layer.borderColor = UIColor.white.cgColor
-        sb.layer.cornerRadius = 10
-        return sb
-    }()   
+    let localAlert: UIView = {
+        let la = UIView()
+        la.translatesAutoresizingMaskIntoConstraints = false
+        la.backgroundColor = UIColor.lightGray
+        la.alpha = 0.8
+        la.layer.cornerRadius = 15
+        return la
+    }()
+    
+    func setupLocalAlert() {
+        view.addSubview(localAlert)
+        localAlert.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        localAlert.widthAnchor.constraint(equalToConstant: view.frame.width * 0.95).isActive = true
+        localAlert.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        localAlert.topAnchor.constraint(equalTo: view.topAnchor, constant: -100).isActive = true
+    }
+    
+    let qrLogo: UIImageView = {
+        let logo = UIImageView()
+        logo.translatesAutoresizingMaskIntoConstraints = false
+        logo.image = #imageLiteral(resourceName: "qr")
+        logo.contentMode = .scaleAspectFit
+        return logo
+    }()
+    
+    func setupQRLogo() {
+        localAlert.addSubview(qrLogo)
+        qrLogo.leadingAnchor.constraint(equalTo: localAlert.leadingAnchor, constant: 7).isActive = true
+        qrLogo.topAnchor.constraint(equalTo: localAlert.topAnchor, constant: 7).isActive = true
+        qrLogo.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        qrLogo.widthAnchor.constraint(equalToConstant: 25).isActive = true
+    }
+    
+    let qrLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = " QR Code"
+        label.font = label.font.withSize(15)
+        label.textColor = UIColor.black
+        return label
+    }()
+    
+    func setupQRLabel() {
+        localAlert.addSubview(qrLabel)
+        qrLabel.leadingAnchor.constraint(equalTo: qrLogo.trailingAnchor).isActive = true
+        qrLabel.topAnchor.constraint(equalTo: localAlert.topAnchor, constant: 7).isActive = true
+        qrLabel.trailingAnchor.constraint(equalTo: localAlert.trailingAnchor).isActive = true
+        qrLabel.heightAnchor.constraint(equalTo: qrLogo.heightAnchor).isActive = true
+    }
+    
+    let qrURLText: UILabel = {
+        let qrLabel = UILabel()
+        qrLabel.translatesAutoresizingMaskIntoConstraints = false
+        qrLabel.textColor = UIColor.black
+        return qrLabel
+    }()
+    
+    func setupQRURLText() {
+        localAlert.addSubview(qrURLText)
+        qrURLText.leadingAnchor.constraint(equalTo: qrLogo.leadingAnchor).isActive = true
+        qrURLText.topAnchor.constraint(equalTo: qrLogo.bottomAnchor).isActive = true
+        qrURLText.trailingAnchor.constraint(equalTo: localAlert.trailingAnchor).isActive = true
+        qrURLText.bottomAnchor.constraint(equalTo: localAlert.bottomAnchor).isActive = true
+    }
     
     let tracker: UIImageView = {
         let track = UIImageView(image: #imageLiteral(resourceName: "tracker"))
+        track.contentMode = .scaleAspectFill
         track.translatesAutoresizingMaskIntoConstraints = false
         return track
     }()
     
     func setupTracker() {
         view.addSubview(tracker)
-        tracker.heightAnchor.constraint(equalToConstant: view.frame.height * 0.3).isActive = true
-        tracker.widthAnchor.constraint(equalToConstant: view.frame.width * 0.9).isActive = true
         tracker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        tracker.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-    
-    func setupScannerBox() {
-        view.addSubview(scannerBox)
-        
-        scannerBox.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scannerBox.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        scannerBox.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        scannerBox.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        tracker.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: view.frame.height * 0.05).isActive = true
+        tracker.heightAnchor.constraint(equalToConstant: view.frame.height * 0.7).isActive = true
     }
     
     // run this function everytime we get an output
@@ -90,15 +164,17 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 // make sure the object type is a qr code
                 if object.type == AVMetadataObject.ObjectType.qr {
                     
-                    // display a message, either to retake or copy the code
-                    let alert = UIAlertController(title: "QR Code", message: object.stringValue, preferredStyle: .alert)
-                    let retake = UIAlertAction(title: "Retake", style: .default, handler: nil)
-                    let copy = UIAlertAction(title: "Copy", style: .default) { (_) in
-                        UIPasteboard.general.string = object.stringValue
+                    qrURLText.text = object.stringValue
+                    
+                    let viewHeight = view.frame.height - view.safeAreaLayoutGuide.layoutFrame.height
+                    UIView.animate(withDuration: 0.5) {
+                        self.localAlert.transform = CGAffineTransform(translationX: 0, y: viewHeight * 1.1)
                     }
-                    alert.addAction(retake)
-                    alert.addAction(copy)
-                    present(alert, animated: true, completion: nil)
+                    
+                    if let objectString = object.stringValue {
+                        objectStringValue = objectString
+                    }
+                    
                 }
             }
         }
