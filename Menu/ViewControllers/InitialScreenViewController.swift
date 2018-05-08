@@ -23,7 +23,7 @@ class InitialScreenViewController: UIViewController {
         let bi = UIImageView(frame: CGRect(x: 0, y: 0, width: 500, height:0))
         bi.translatesAutoresizingMaskIntoConstraints = false
         bi.contentMode = .scaleAspectFill
-        bi.image = #imageLiteral(resourceName: "backgroundImage")
+        bi.image = #imageLiteral(resourceName: "eggWallpaper")
         return bi
     }()
     
