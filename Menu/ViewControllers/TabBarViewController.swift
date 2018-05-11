@@ -25,17 +25,15 @@ class TabBarViewController: UIViewController {
     func createTabBarControllers() {
         view.addSubview(tabBarControl.view)
         
+        let cameraController = CameraViewController()
+        cameraController.title = "Camera"
+        cameraController.tabBarItem.image = #imageLiteral(resourceName: "camera")
+        
         let menuFinderController = MenuFinderViewController()
         menuFinderController.title = "Menu List"
         menuFinderController.tabBarItem.image = #imageLiteral(resourceName: "list")
         
-        
-        let cameraController = CameraViewController()
-        cameraController.title = "Camera"
-        cameraController.tabBarItem.image = #imageLiteral(resourceName: "camera")
-
-        
-        tabBarControl.viewControllers = [menuFinderController, cameraController]
+        tabBarControl.viewControllers = [cameraController, menuFinderController]
     }
     
 }

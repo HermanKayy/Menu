@@ -7,27 +7,41 @@
 //
 
 import UIKit
+import Firebase
 
 class ScrollViewController: UIViewController {
+    
+    var categories: [Category]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor.white
         scrollView.delegate = self
         pageControl.numberOfPages = tableViewStack.arrangedSubviews.count
         
+        if let categories = categories {
+            pageControlLabel.text = categories[0].name
+        }
+
         setupScrollView()
         setupPageControlLabel()
         setupPageControl()
         setupTableViewStack()
         
-        
+        navigationItem.title = pageControlLabel.text
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cart", style: .plain, target: self, action: nil)
+       
+        for table in TableViewsController.shared.tableViews {
+            table.delegate = self
+            table.dataSource = self
+        }
     }
     
     let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
-//        sv.contentSize = CGSize(width: sv.contentSize.width, height: sv.frame.height)
         sv.showsHorizontalScrollIndicator = false
         sv.isPagingEnabled = true 
         return sv
@@ -42,10 +56,10 @@ class ScrollViewController: UIViewController {
     }
     
     let pageControlLabel: UILabel = {
+
         let pcLabel = UILabel()
         pcLabel.translatesAutoresizingMaskIntoConstraints = false
         pcLabel.textAlignment = .center
-        pcLabel.text = "Breakfast"
         return pcLabel
     }()
     
@@ -72,12 +86,9 @@ class ScrollViewController: UIViewController {
     }
     
     let tableViewStack: UIStackView = {
-        
-        let tableview1 = tableView1()
-        let tableview2 = tableView2()
-        let tableview3 = tableView3()
-        
-        let stackView = UIStackView(arrangedSubviews: [tableview1, tableview2, tableview3])
+        let stackView = UIStackView(arrangedSubviews: TableViewsController.shared.tableViews)
+        print(TableViewsController.shared.tableViews.count)
+        print(TableViewsController.shared.categories.count)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
@@ -85,12 +96,12 @@ class ScrollViewController: UIViewController {
     }()
     
     func setupTableViewStack() {
-
+        
         scrollView.addSubview(tableViewStack)
         tableViewStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         tableViewStack.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         tableViewStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        tableViewStack.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableViewStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.1)).isActive = true
         tableViewStack.widthAnchor.constraint(equalToConstant: view.frame.width * CGFloat(tableViewStack.arrangedSubviews.count)).isActive = true
     }
 }
@@ -98,18 +109,97 @@ class ScrollViewController: UIViewController {
 extension ScrollViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageWidth = scrollView.bounds.width
+        
+        let pageWidth = view.bounds.width
         let pageFraction = scrollView.contentOffset.x / pageWidth
         pageControl.currentPage = Int(round(pageFraction))
         
+        guard let categories = categories else { return }
         switch pageControl.currentPage {
-        case 0: pageControlLabel.text = "Breakfast"
-        case 1: pageControlLabel.text = "Lunch"
-        case 2: pageControlLabel.text = "Dinner"
+        case 0: pageControlLabel.text = categories[0].name
+        case 1: pageControlLabel.text = categories[1].name
+        case 2: pageControlLabel.text = categories[2].name
+        case 3: pageControlLabel.text = categories[3].name
+        case 4: pageControlLabel.text = categories[4].name
+        case 5: pageControlLabel.text = categories[5].name
+        case 6: pageControlLabel.text = categories[6].name
+        case 7: pageControlLabel.text = categories[7].name
         default: pageControlLabel.text = ""
         }
+        
+        navigationItem.title = pageControlLabel.text
     }
 }
+
+extension ScrollViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let categories = categories else { return 0 }
+        switch tableView.tag {
+        case 0:
+            return categories[0].items.count
+        case 1:
+            return categories[1].items.count
+        case 2:
+            return categories[2].items.count
+        case 3:
+            return categories[3].items.count
+        case 4:
+            return categories[4].items.count
+        case 5:
+            return categories[5].items.count
+        case 6:
+            return categories[6].items.count
+        case 7:
+            return categories[7].items.count
+        default:
+            return 0
+        }
+
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? ItemsTableViewCell else { return UITableViewCell() }
+        guard let categories = categories else { return UITableViewCell() }
+        switch tableView.tag {
+        case 0:
+            let items = categories[0].items[indexPath.row]
+            cell.textLabel?.text = items.name
+        case 1:
+            let items = categories[1].items[indexPath.row]
+            cell.textLabel?.text = items.name
+        case 2:
+            let items = categories[2].items[indexPath.row]
+            cell.label.text = items.name
+        case 3:
+            let items = categories[3].items[indexPath.row]
+            cell.textLabel?.text = items.name
+        case 4:
+            let items = categories[4].items[indexPath.row]
+            cell.textLabel?.text = items.name
+        case 5:
+            let items = categories[5].items[indexPath.row]
+            cell.textLabel?.text = items.name
+        case 6:
+           let items = categories[6].items[indexPath.row]
+            cell.textLabel?.text = items.name
+        case 7:
+            let items = categories[7].items[indexPath.row]
+            cell.textLabel?.text = items.name
+        default:
+            cell.textLabel?.text = ""
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150 
+    }
+
+}
+
+
+
 
 
 

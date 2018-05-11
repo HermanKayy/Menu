@@ -9,18 +9,16 @@
 /* Begin PBXBuildFile section */
 		2108D96CA058D1EC18A91414 /* Pods_Menu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBD9B5320D859834947D670 /* Pods_Menu.framework */; };
 		5D4458A2209115B800BB92A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D4458A1209115B800BB92A3 /* GoogleService-Info.plist */; };
-		5DBF244F20A0BC8E0057440B /* ChickenSoupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF244E20A0BC8E0057440B /* ChickenSoupViewController.swift */; };
+		5D47056020A50FF500C25222 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47055F20A50FF500C25222 /* ItemsTableViewCell.swift */; };
 		5DBF245120A0BD950057440B /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF245020A0BD950057440B /* ScrollViewController.swift */; };
-		5DBF245C20A1048A0057440B /* tableView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF245B20A1048A0057440B /* tableView1.swift */; };
-		5DBF245E20A105000057440B /* tableView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF245D20A105000057440B /* tableView2.swift */; };
-		5DBF246020A10B550057440B /* tableView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF245F20A10B550057440B /* tableView3.swift */; };
 		5DD8FC39209387C700F085CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC38209387C700F085CD /* TabBarViewController.swift */; };
 		5DD8FC3B2093880100F085CD /* MenuFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC3A2093880100F085CD /* MenuFinderViewController.swift */; };
 		5DD8FC3D2093899E00F085CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC3C2093899E00F085CD /* CameraViewController.swift */; };
 		5DD8FC422094180700F085CD /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC412094180700F085CD /* InitialScreenViewController.swift */; };
-		5DD8FC44209503D800F085CD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC43209503D800F085CD /* Restaurant.swift */; };
-		5DD8FC462095051700F085CD /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC452095051700F085CD /* RestaurantController.swift */; };
 		5DD8FC4820953D4200F085CD /* MenuDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC4720953D4200F085CD /* MenuDisplayViewController.swift */; };
+		5DE3F6F820A23324001334B3 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3F6F720A23324001334B3 /* Restaurant.swift */; };
+		5DE3F6FA20A24D3E001334B3 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3F6F920A24D3E001334B3 /* RestaurantController.swift */; };
+		5DE3F6FC20A3D4CA001334B3 /* TableViewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3F6FB20A3D4CA001334B3 /* TableViewsController.swift */; };
 		5DF8BA4D208E325800019E5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF8BA4C208E325800019E5E /* AppDelegate.swift */; };
 		5DF8BA52208E325800019E5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8BA50208E325800019E5E /* Main.storyboard */; };
 		5DF8BA54208E325800019E5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF8BA53208E325800019E5E /* Assets.xcassets */; };
@@ -29,19 +27,17 @@
 
 /* Begin PBXFileReference section */
 		5D4458A1209115B800BB92A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5D47055F20A50FF500C25222 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 		5D4CA86F20911E0500EC53CF /* Menu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Menu.entitlements; sourceTree = "<group>"; };
-		5DBF244E20A0BC8E0057440B /* ChickenSoupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenSoupViewController.swift; sourceTree = "<group>"; };
 		5DBF245020A0BD950057440B /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
-		5DBF245B20A1048A0057440B /* tableView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableView1.swift; sourceTree = "<group>"; };
-		5DBF245D20A105000057440B /* tableView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableView2.swift; sourceTree = "<group>"; };
-		5DBF245F20A10B550057440B /* tableView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableView3.swift; sourceTree = "<group>"; };
 		5DD8FC38209387C700F085CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5DD8FC3A2093880100F085CD /* MenuFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFinderViewController.swift; sourceTree = "<group>"; };
 		5DD8FC3C2093899E00F085CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5DD8FC412094180700F085CD /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
-		5DD8FC43209503D800F085CD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
-		5DD8FC452095051700F085CD /* RestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
 		5DD8FC4720953D4200F085CD /* MenuDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDisplayViewController.swift; sourceTree = "<group>"; };
+		5DE3F6F720A23324001334B3 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		5DE3F6F920A24D3E001334B3 /* RestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
+		5DE3F6FB20A3D4CA001334B3 /* TableViewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewsController.swift; sourceTree = "<group>"; };
 		5DF8BA49208E325800019E5E /* Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Menu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF8BA4C208E325800019E5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DF8BA51208E325800019E5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,11 +72,7 @@
 		5DBF245220A0BD9A0057440B /* AfterScanViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DBF244E20A0BC8E0057440B /* ChickenSoupViewController.swift */,
 				5DBF245020A0BD950057440B /* ScrollViewController.swift */,
-				5DBF245B20A1048A0057440B /* tableView1.swift */,
-				5DBF245D20A105000057440B /* tableView2.swift */,
-				5DBF245F20A10B550057440B /* tableView3.swift */,
 			);
 			path = AfterScanViewControllers;
 			sourceTree = "<group>";
@@ -120,8 +112,10 @@
 			children = (
 				5D4CA86F20911E0500EC53CF /* Menu.entitlements */,
 				5DF8BA4C208E325800019E5E /* AppDelegate.swift */,
-				5DD8FC43209503D800F085CD /* Restaurant.swift */,
-				5DD8FC452095051700F085CD /* RestaurantController.swift */,
+				5DE3F6F720A23324001334B3 /* Restaurant.swift */,
+				5DE3F6F920A24D3E001334B3 /* RestaurantController.swift */,
+				5DE3F6FB20A3D4CA001334B3 /* TableViewsController.swift */,
+				5D47055F20A50FF500C25222 /* ItemsTableViewCell.swift */,
 				5DD8FC3E209406C100F085CD /* ViewControllers */,
 				5DBF245220A0BD9A0057440B /* AfterScanViewControllers */,
 				5DF8BA7F208E887900019E5E /* Resources */,
@@ -250,12 +244,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Menu/Pods-Menu-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,19 +268,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DBF245E20A105000057440B /* tableView2.swift in Sources */,
-				5DBF246020A10B550057440B /* tableView3.swift in Sources */,
-				5DD8FC462095051700F085CD /* RestaurantController.swift in Sources */,
+				5DE3F6F820A23324001334B3 /* Restaurant.swift in Sources */,
+				5DE3F6FC20A3D4CA001334B3 /* TableViewsController.swift in Sources */,
+				5DE3F6FA20A24D3E001334B3 /* RestaurantController.swift in Sources */,
 				5DD8FC3B2093880100F085CD /* MenuFinderViewController.swift in Sources */,
 				5DD8FC3D2093899E00F085CD /* CameraViewController.swift in Sources */,
-				5DBF244F20A0BC8E0057440B /* ChickenSoupViewController.swift in Sources */,
-				5DD8FC44209503D800F085CD /* Restaurant.swift in Sources */,
 				5DD8FC4820953D4200F085CD /* MenuDisplayViewController.swift in Sources */,
 				5DD8FC422094180700F085CD /* InitialScreenViewController.swift in Sources */,
+				5D47056020A50FF500C25222 /* ItemsTableViewCell.swift in Sources */,
 				5DBF245120A0BD950057440B /* ScrollViewController.swift in Sources */,
 				5DD8FC39209387C700F085CD /* TabBarViewController.swift in Sources */,
 				5DF8BA4D208E325800019E5E /* AppDelegate.swift in Sources */,
-				5DBF245C20A1048A0057440B /* tableView1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

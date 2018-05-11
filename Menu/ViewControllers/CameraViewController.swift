@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -34,13 +35,18 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     @objc func localAlertTapped() {
-        print(objectStringValue)
+        
+        let scrollVC = ScrollViewController()
+        let navController = UINavigationController(rootViewController: scrollVC)
+        
         switch objectStringValue {
         case "https://f988v.app.goo.gl/sReo":
-            present(ChickenSoupViewController(), animated: true, completion: nil)
+            scrollVC.categories = TableViewsController.shared.categories
         default:
-            UIApplication.shared.open(URL(string: objectStringValue)!, options: [:], completionHandler: nil)
+            guard let url = URL(string: objectStringValue) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+        present(navController, animated: true, completion: nil)
     }
     
     @objc func localAlertSwiped() {
@@ -173,11 +179,26 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                     
                     if let objectString = object.stringValue {
                         objectStringValue = objectString
+                        
+                        switch objectString {
+                        case "https://f988v.app.goo.gl/sReo":
+                            TableViewsController.shared.loadDB(resNumber: 0)
+                        default:
+                            return
+                        }
+                        
                     }
-                    
                 }
             }
         }
     }
-
 }
+
+
+
+
+
+
+
+
+
