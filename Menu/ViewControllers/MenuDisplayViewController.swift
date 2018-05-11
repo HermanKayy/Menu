@@ -10,7 +10,6 @@ import UIKit
 
 class MenuDisplayViewController: UIViewController {
     
-    var restuarant: Restaurant?
 
     override func viewDidLoad() {
         super.viewDidLoad()

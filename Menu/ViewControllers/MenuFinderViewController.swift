@@ -58,35 +58,36 @@ class MenuFinderViewController: UIViewController, UITableViewDelegate, UITableVi
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text, !searchTerm.isEmpty else { return }
         
-        RestaurantController.shared.fetchRestuarantNamesWith(searchTerm: searchTerm) { (restuarants) in
-            if restuarants != nil {
-                DispatchQueue.main.async {
-                    searchBar.text = ""
-                    searchBar.resignFirstResponder()
-                    self.menuTableView.reloadData()
-                }
-            }
-        }
+//        RestaurantController.shared.fetchRestuarantNamesWith(searchTerm: searchTerm) { (restuarants) in
+//            if restuarants != nil {
+//                DispatchQueue.main.async {
+//                    searchBar.text = ""
+//                    searchBar.resignFirstResponder()
+//                    self.menuTableView.reloadData()
+//                }
+//            }
+//        }
     }
     
     // MARK: --- Table View Datasource Methods ---
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RestaurantController.shared.restaurants.count
+//        return RestaurantController.shared.restaurants.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        let restuarant = RestaurantController.shared.restaurants[indexPath.row]
-        cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = restuarant.name
+//        let restuarant = RestaurantController.shared.restaurants[indexPath.row]
+//        cell.accessoryType = .disclosureIndicator
+//        cell.textLabel?.text = restuarant.name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let restaurant = RestaurantController.shared.restaurants[indexPath.row]
-        let destinationVC = MenuDisplayViewController()
-        destinationVC.restuarant = restaurant
-        present(destinationVC, animated: true, completion: nil)
+//        let restaurant = RestaurantController.shared.restaurants[indexPath.row]
+//        let destinationVC = MenuDisplayViewController()
+//        destinationVC.restuarant = restaurant
+//        present(destinationVC, animated: true, completion: nil)
     }
 }
 
