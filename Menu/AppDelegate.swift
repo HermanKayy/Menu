@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-//        window?.rootViewController = UINavigationController(rootViewController: scrollVC)
-        window?.rootViewController = InitialScreenViewController()
+        let scrollVC = ScrollViewController()
+        window?.rootViewController = UINavigationController(rootViewController: scrollVC)
         
         return true
     }

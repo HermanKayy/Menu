@@ -13,7 +13,7 @@ import Firebase
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var video = AVCaptureVideoPreviewLayer()  // This shows where the camera is actually pointing at
-    var objectStringValue = ""
+    var objectStringValue = "" 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,7 +186,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                         default:
                             return
                         }
-                        
                     }
                 }
             }
