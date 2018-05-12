@@ -13,6 +13,7 @@ class TableViewsController {
     static let shared = TableViewsController()
     var tableViews = [UITableView]()
     var categories: [Category] = []
+    let table = UITableView()
 
     let ref = Database.database().reference()
     

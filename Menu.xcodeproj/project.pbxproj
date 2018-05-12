@@ -10,6 +10,8 @@
 		2108D96CA058D1EC18A91414 /* Pods_Menu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBD9B5320D859834947D670 /* Pods_Menu.framework */; };
 		5D4458A2209115B800BB92A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D4458A1209115B800BB92A3 /* GoogleService-Info.plist */; };
 		5D47056020A50FF500C25222 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47055F20A50FF500C25222 /* ItemsTableViewCell.swift */; };
+		5D962F0820A5F3F00094C4B3 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D962F0720A5F3F00094C4B3 /* FilterViewController.swift */; };
+		5D962F0A20A5F63D0094C4B3 /* CheckOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D962F0920A5F63D0094C4B3 /* CheckOutViewController.swift */; };
 		5DBF245120A0BD950057440B /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBF245020A0BD950057440B /* ScrollViewController.swift */; };
 		5DD8FC39209387C700F085CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC38209387C700F085CD /* TabBarViewController.swift */; };
 		5DD8FC3B2093880100F085CD /* MenuFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8FC3A2093880100F085CD /* MenuFinderViewController.swift */; };
@@ -29,6 +31,8 @@
 		5D4458A1209115B800BB92A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D47055F20A50FF500C25222 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
 		5D4CA86F20911E0500EC53CF /* Menu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Menu.entitlements; sourceTree = "<group>"; };
+		5D962F0720A5F3F00094C4B3 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		5D962F0920A5F63D0094C4B3 /* CheckOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutViewController.swift; sourceTree = "<group>"; };
 		5DBF245020A0BD950057440B /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		5DD8FC38209387C700F085CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5DD8FC3A2093880100F085CD /* MenuFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFinderViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				5DBF245020A0BD950057440B /* ScrollViewController.swift */,
+				5D962F0720A5F3F00094C4B3 /* FilterViewController.swift */,
+				5D962F0920A5F63D0094C4B3 /* CheckOutViewController.swift */,
 			);
 			path = AfterScanViewControllers;
 			sourceTree = "<group>";
@@ -270,10 +276,12 @@
 			files = (
 				5DE3F6F820A23324001334B3 /* Restaurant.swift in Sources */,
 				5DE3F6FC20A3D4CA001334B3 /* TableViewsController.swift in Sources */,
+				5D962F0A20A5F63D0094C4B3 /* CheckOutViewController.swift in Sources */,
 				5DE3F6FA20A24D3E001334B3 /* RestaurantController.swift in Sources */,
 				5DD8FC3B2093880100F085CD /* MenuFinderViewController.swift in Sources */,
 				5DD8FC3D2093899E00F085CD /* CameraViewController.swift in Sources */,
 				5DD8FC4820953D4200F085CD /* MenuDisplayViewController.swift in Sources */,
+				5D962F0820A5F3F00094C4B3 /* FilterViewController.swift in Sources */,
 				5DD8FC422094180700F085CD /* InitialScreenViewController.swift in Sources */,
 				5D47056020A50FF500C25222 /* ItemsTableViewCell.swift in Sources */,
 				5DBF245120A0BD950057440B /* ScrollViewController.swift in Sources */,
