@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let scrollVC = ScrollViewController()
         window?.rootViewController = UINavigationController(rootViewController: scrollVC)
+//        window?.rootViewController = InitialScreenViewController()
         
         return true
     }
