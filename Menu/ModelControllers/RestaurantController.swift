@@ -1,20 +1,21 @@
 //
-//  TableViewsController.swift
+//  RestaurantController.swift
 //  Menu
 //
-//  Created by Herman Kwan on 5/9/18.
+//  Created by Herman Kwan on 5/8/18.
 //  Copyright © 2018 Herman Kwan. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class TableViewsController {
-    static let shared = TableViewsController()
+class RestaurantController {
+    
+    static let shared = RestaurantController()
     var tableViews = [UITableView]()
     var categories: [Category] = []
     let table = UITableView()
-
+    
     let ref = Database.database().reference()
     
     func loadDB(resNumber: Int) {
@@ -40,7 +41,7 @@ class TableViewsController {
             
             for _ in 0..<self.categories.count {
                 let table = UITableView()
-                table.register(ItemsTableViewCell.self, forCellReuseIdentifier: "cellID")
+                table.register(ScrollTableViewCell.self, forCellReuseIdentifier: "cellID")
                 table.tag = tableViewTag
                 innerTableViews.append(table)
                 tableViewTag += 1
@@ -49,5 +50,3 @@ class TableViewsController {
         }
     }
 }
-
-
